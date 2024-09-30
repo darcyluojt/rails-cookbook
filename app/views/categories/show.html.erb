@@ -1,0 +1,18 @@
+<h1><%= @category.name %></h1>
+<button><%= link_to 'add recipe', new_category_bookmark_path(params[:id]) %></button>
+<button><%= link_to 'Home', root_path %></button>
+<%= link_to 'Delete', category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Are you sure? If you delete the list, you will remove all your data inside"}%>
+<div class="d-flex">
+<% @category.bookmarks.each do |bookmark| %>
+  <div class="card-product">
+    <%= image_tag bookmark.recipe.image_url, width: 300 %>
+    <h3><%= bookmark.recipe.name%></h3>
+    <p><strong><%= bookmark.recipe.rating %></strong></p>
+    <span><%= bookmark.recipe.description %></span>
+    <hr>
+    <p>Bookmark: <%= bookmark.comment %></p>
+    <p class='btn btn-danger'><%= link_to 'Delete', bookmark, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+
+  </div>
+    <% end %>
+</div>

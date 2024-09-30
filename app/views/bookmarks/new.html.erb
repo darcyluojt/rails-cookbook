@@ -1,0 +1,7 @@
+<h1>Adding new recipe to <%= @category.name %></h1>
+<%= link_to 'Home', root_path %>
+<%= simple_form_for [@category, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :recipe%>
+  <%= f.button :submit %>
+<% end %>
