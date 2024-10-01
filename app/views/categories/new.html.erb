@@ -1,6 +1,8 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<div class="form">
+<h1>Create a new category</h1>
 <%= simple_form_for @category do |f| %>
   <%= f.input :name %>
-  <%= f.button :submit %>
+  <%= f.input :category_url, as: :file %>
+  <%= f.button :submit, class: "btn btn-warning" %>
 <% end %>
+</div>

@@ -1,7 +1,17 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
-<button><%= link_to 'New Category', new_category_path %></button>
-<%@categories.each do |category|%>
-<h1><%= link_to category.name, category %></h1>
-<p><%= category.recipes.length %> recipe(s) inside your list</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path 'banner.jpg' %>')">
+<h1>Cookbook</h1>
+<h3>Save your favourite recipes</h3>
+</div>
+<div class="container">
+<div class="row">
+  <%@categories.each do |category|%>
+  <div class="col-4">
+<div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path category.category_url %>);">
+  <%= link_to "", category, class: "card-link"%>
+  <h1><%= category.name %></h1>
+  <p><%= category.recipes.length %> recipe(s) inside your list</p>
+</div>
+</div>
 <% end %>
+</div>
+</div>

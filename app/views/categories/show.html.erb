@@ -1,18 +1,33 @@
+<div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path @category.recipes.sample.image_url %>)">
 <h1><%= @category.name %></h1>
-<button><%= link_to 'add recipe', new_category_bookmark_path(params[:id]) %></button>
-<button><%= link_to 'Home', root_path %></button>
-<%= link_to 'Delete', category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Are you sure? If you delete the list, you will remove all your data inside"}%>
-<div class="d-flex">
-<% @category.bookmarks.each do |bookmark| %>
-  <div class="card-product">
-    <%= image_tag bookmark.recipe.image_url, width: 300 %>
-    <h3><%= bookmark.recipe.name%></h3>
-    <p><strong><%= bookmark.recipe.rating %></strong></p>
-    <span><%= bookmark.recipe.description %></span>
-    <hr>
-    <p>Bookmark: <%= bookmark.comment %></p>
-    <p class='btn btn-danger'><%= link_to 'Delete', bookmark, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-
-  </div>
-    <% end %>
 </div>
+<div class="container">
+<div class="d-flex justify-content-between">
+  <h1>Recipes</h1>
+  <div>
+    <%= link_to 'Add a Recipe', new_category_bookmark_path(@category), class:"btn btn-warning text-white" %>
+    <%= link_to 'Delete', category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Are you sure? If you delete the list, you will remove all your data inside"}, class: "btn btn-danger text-white"%>
+  </div>
+
+</div>
+<div class="cards">
+<% @category.bookmarks.each do |bookmark| %>
+  <div class="recipe-card">
+    <%= image_tag bookmark.recipe.image_url%>
+    <%= link_to bookmark, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn-delete' do %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %>
+    <div class="text-div">
+    <h3><%= bookmark.recipe.name.truncate(32)%></h3>
+    <span><%= bookmark.recipe.description.truncate(160) %></span>
+    <hr>
+    <div class="d-flex justify-content-between">
+    <p class="text-center"><i class="fas fa-quote-left me-2"></i><%= bookmark.comment %></p>
+    <p class="text-center"><strong><%= bookmark.recipe.rating %> <%= '😋' * bookmark.recipe.rating.to_i %></strong></p>
+    </div>
+    </div>
+    </div>
+
+<% end %>
+</div>
+  </div>

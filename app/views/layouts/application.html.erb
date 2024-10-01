@@ -18,8 +18,14 @@
   </head>
 
   <body>
-    <div class="container">
-    <%= yield %>
+    <div class="navbar">
+     <%= image_tag "cookbook_logo.jpeg", height: 60, class:"rounded-circle"%>
+      <div>
+      <button><%= link_to 'Home', root_path%></button>
+      <button><%= link_to 'New category', new_category_path %></button>
+      </div>
     </div>
+
+    <%= yield %>
   </body>
 </html>
