@@ -10,16 +10,16 @@
 require "json"
 require "open-uri"
 
-# Bookmark.destroy_all
-# Category.destroy_all
-# Recipe.destroy_all
+Bookmark.destroy_all
+Category.destroy_all
+Recipe.destroy_all
 
 
 category_url = "https://www.themealdb.com/api/json/v1/1/categories.php"
 category_uri = URI.parse(category_url).read
 categories_array = JSON.parse(category_uri)["categories"]
-
-categories_array.reverse.each do |category|
+# categories_array.reverse.each do |category|
+categories_array.each do |category|
   # create the new category with the name and the category_url
   search_str = category["strCategory"]
   new_category = Category.create(name: search_str, category_url: category["strCategoryThumb"])

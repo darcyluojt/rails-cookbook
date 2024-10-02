@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [ :show, :destroy ]
   def index
-    @categories = Category.all
+    @categories = Category.all.reverse
   end
 
   def new
@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
 
   private
   def strong_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :category_image)
   end
 
   def find_category

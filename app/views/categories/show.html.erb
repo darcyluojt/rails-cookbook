@@ -1,4 +1,9 @@
-<div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path @category.recipes.sample.image_url %>)">
+
+<% if @category.category_image.attached? %>
+  <div class="banner" style="background-image: url('<%= cl_image_path @category.category_image.key %>')">
+<% else %>
+  <div class="banner" style="background-image: url('<%= image_path @category.category_url %>')">
+    <% end %>
 <h1><%= @category.name %></h1>
 </div>
 <div class="container">

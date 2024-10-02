@@ -2,7 +2,7 @@
 <h1>Create a new category</h1>
 <%= simple_form_for @category do |f| %>
   <%= f.input :name %>
-  <%= f.input :category_url, as: :file %>
+  <%= f.input :category_image, as: :file %>
   <%= f.button :submit, class: "btn btn-warning" %>
 <% end %>
 </div>
