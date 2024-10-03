@@ -2,6 +2,8 @@
 
   A cookbook website that pulls recipe and category data from https://www.themealdb.com/api. In this website, users can:
   
+  * view all categories on homepage and all recipes in one specific category;
+
   * edit or delete existing categories by adding or deleting recipes inside;
     
   * create their own category and add recipes (from the database) inside by putting a bookmark;
