@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  A cookbook website that pulls recipe and category data from https://www.themealdb.com/api. In this website, users can:
+  
+  * edit or delete existing categories by adding or deleting recipes inside;
+    
+  * create their own category and add recipes (from the database) inside by putting a bookmark;
+    
+  * upload an image of their choice to decorate their category;
 
-Things you may want to cover:
+**Languages**: Ruby on Rails, HTML, SCSS
 
-* Ruby version
+**Tools:** Heroku, Cloudinary
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Gemfile:** bootstrap, simple_form, dotenv-rails, cloudinary, open-uri, font-awesome-sass, sassc-rails
